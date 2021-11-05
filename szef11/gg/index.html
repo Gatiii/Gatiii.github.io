@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="GET">
+        <fieldset>
+            <legend>Zamówienia obiad</legend>
+            <fieldset>
+                <legend>Dania</legend>
+                <p>wybierz dania:</p>
+                <select name="lista" size="4" value="wybor">
+                    <option value="10">danie 1 (10zł)</option>
+                    <option value="15">Zestaw 2 (15zł)</option>
+                    <option value="20">zestaw 3 (20zł)</option>
+                    <option value="25">zestaw 4 (25zł)</option>
+                    <option value="30">zestaw 5 (30zł)</option>
+                    <option value="35">zestaw 6 (35zł)</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Dodatki</legend>
+                <p>wybierz dodatki:</p>
+                <input type="checkbox" id="dodatki" value="5">
+                <label for="dodatki">baton (5 zł)</label>
+                <input type="checkbox" id="dodatki" value="10">
+                <label for="dodatki">sos (10zł)</label>
+                <input type="checkbox" id="dodatki" value="20">
+                <label for="dodatki">napój (20zł)</label>
+            </fieldset>
+            <fieldset>
+                <legend>Dostawa:</legend>
+                <p>wybierz sposób odbioru:</p>
+                <input type="radio" id="dostawa" name="realizacja">
+                <label for="dostawa">Na miejscu (0zł)</label>
+
+                <input type="radio" id="dostawa" name="realizacja">
+                <label for="dostawa">Na wynos (10zł)</label>
+
+                <input type="radio" id="dostawa" name="realizacja">
+                <label for="dostawa">Dowóz (20zł)</label><br>
+            </fieldset>
+            <input type="reset" value="Zresetuj">
+            <button onclick="obliczenie_zamowienia()">Oblicz cene</button>
+
+        </fieldset>
+        <p id="cena">Wartosc zamowienia: <span></span></p>
+    </form>
+    <script>
+        const opcje = document.querySelectorAll("option")
+        const dodatki = document.querySelectorAll('[name="dodatki"]')
+        const dostawa = document.querySelectorAll("realizacja")
+
+
+        const form = document.querySelector('form')
+        const span = document.querySelector('#cena span')
+
+        function obliczenie_zamowienia(n) {
+
+        }
+
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let wartosc = 0;
+            for (i = 0; i < opcje.length; i++) {
+                if (opcje[i].selected) {
+                    wartosc += parseInt(opcje[i].value)
+                }
+            }
+            span.innerHTML = wartosc
+        })
+    </script>
+</body>
+
+</html>

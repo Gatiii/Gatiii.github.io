@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zapis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Warsztat samochodowy</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona Główna</a></li>
+            <li><a href="formularz.html">Zapis</a></li>
+            <li><a href="uslugi.html">Usługi</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form action="baza.php" method="POST">
+            <fieldset>
+                <legend>Dane klienta</legend>
+                <p>Imie i nazwisko/firma</p>
+                <input id="imie" class="imie" name="imie" type="text">
+                <p>Adres zamieszkania</p>
+                <input id="adres" class="adres" name="adres" type="text">
+                <p>Nr telefonu</p>
+                <input id="telefon" class="telefon" name="telefon" type="number">
+            </fieldset>
+            <fieldset>
+                <legend>Dane pojazdu</legend>
+                <p>Marka/Model</p>
+                <input id="marka" name="marka" type="text">
+                <p>Pojemnosc silnika (m3)</p>
+                <input id="pojemnnosc" name="pojemnosc" type="number">
+                <p>Numer rejestracyjny</p>
+                <input id="rejestracja" name="rejestracja" type="text">
+                <p>Przebieg (km)</p>
+                <input id="przebieg" name="przebieg" type="number">
+            </fieldset>
+            <fieldset>
+                <legend>Informacje dodatkowe</legend>
+                <p>Termin odbioru auta z serwisu:</p>
+                <input id="data" name="data" type="date">
+                <p>Zgoda na jazde probna</p>
+                <input id="drive1" type="radio" value="a" name="drive"><label>Tak</label>
+                <input id="drive2" type="radio" value="b" name="drive"><label>Nie</label>
+                <p>Czy samochod jest wgniecony lub porysowany</p>
+                <input id="wgniecenie1" type="radio" value="a" name="wgniecenie"><label>Tak</label>
+                <input id="wgniecenie2" type="radio" value="b" name="wgniecenie"><label>Nie</label>
+
+            </fieldset>
+            <fieldset class="uslugi" id="uslugi">
+                <legend>Wybierz jaka usługe oczekujesz: </legend>
+                <input type="checkbox" value="160" class="uslugaa" name="us1" id="us1"><label>Wymiana klocków
+                    hamulcowych
+                    (160zł)</label><br>
+                <input type="checkbox" value="100" class="uslugaa" name="us2" id="us2"><label>Przegląd samochodu
+                    (100zł)</label><br>
+                <input type="checkbox" value="300" class="uslugaa" name="us3" id="us3"><label>Wymiana oleju
+                    (300zł)</label><br>
+                <input type="checkbox" value="500" class="uslugaa" name="us4" id="us4"><label>Malowanie samochodu
+                    (500zł)</label><br>
+                <input type="checkbox" value="100" class="uslugaa" name="us5" id="us5"><label>Wymiana opon
+                    (100zł)</label><br>
+                <input type="checkbox" value="300" class="uslugaa" name="us6" id="us6"><label>usuwanie wgniecen w
+                    karoserii(detailing) (300zł)</label><br>
+                <input type="checkbox" value="100" class="uslugaa" name="us7" id="us7"><label>ustawianie zbierznosci
+                    (100zł)</label>
+            </fieldset>
+            <input type="submit" value="Wyślij">
+            <button type="button" value="oblicz" id="suma">oblicz</button>
+            <p>Wartosc zamowienia: <span id="cena"></span></p>
+        </form>
+    </main>
+    <footer>
+        <p>autor Mateusz Galwas &copy;</p>
+    </footer>
+    <script>
+        function oblicz() {
+            const wszystkie = document.querySelectorAll("input[class = 'uslugaa']");
+            console.log(wszystkie);
+            let suma = 0;
+            for (let i = 0; i < wszystkie.length; i++) {
+                if (wszystkie[i].checked) {
+                    suma += parseInt(wszystkie[i].value)
+                }
+            }
+            document.querySelector("#cena").textContent = suma + "zł"
+        }
+        document.querySelector("#suma").addEventListener("click", oblicz)
+    </script>
+</body>
+
+</html>

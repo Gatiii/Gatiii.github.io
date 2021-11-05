@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    text-align: center;
+    height: 80px;
+    background-color: #cecdcb;
+}
+
+nav {
+    background-color: #e6e6e6;
+    height: 150px;
+}
+
+nav ul {
+    text-align: center;
+    padding-top: 4vh;
+}
+
+nav ul li {
+    float: left;
+    width: 25%;
+    list-style-type: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px
+}
+
+nav ul li a:hover {
+    color: yellow;
+}
+
+aside {
+    width: 40%;
+    height: 600px;
+    float: right;
+}
+
+main {
+    float: left;
+    width: 100%;
+}
+
+.indexmain {
+    float: left;
+    width: 60%;
+    height: 600px;
+    padding: 20px;
+}
+
+.indexaside {
+    padding: 30px;
+    text-align: center;
+}
+
+.indexaside h2 {
+    padding: 10px;
+}
+
+.kontaktmain {
+    padding: 20px;
+    text-align: center;
+}
+
+.kontaktmain article {
+    width: 33.3%;
+}
+
+.kontaktmain iframe {
+    width: 70%;
+}
+
+main article {
+    float: left;
+    width: 25%;
+    padding: 20px;
+}
+
+main article h3 {
+    padding: 10px;
+}
+
+main article img {
+    width: 100%;
+}
+
+main article h3 {
+    text-align: center;
+}
+
+footer {
+    height: 50px;
+    background-color: #cecdcb;
+    clear: both;
+}
+
+fieldset {
+    padding: 20px;
+}
+
+form {
+    padding: 15px;
+}
+
+.imie,
+.adres,
+.telefon {
+    width: 80%;
+}
+
+.uslugi {
+    width: 100%;
+}
